@@ -1,4 +1,4 @@
-# power_monitor
+# Power monitor
 Software and hardware for monitor the electrical network (MQTT, Home Assistant)
 
 
