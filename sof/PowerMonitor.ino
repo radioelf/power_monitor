@@ -258,8 +258,8 @@ bool publiTopics () {
   PublishMqtt(topicPotencia, (powerWh / 1000.0));                                     // Potencia en Kwh
   PublishMqtt(topicTcpu, ((temprature_sens_read() - 32) / 1.8));                      // Temperatura interna CPU en grados centígrados
   if (OkDht) {                                                                 	      // Nos aseguramos de haber leído la temperatura y la humedad
-    PublishMqtt(topicTemDHT, temDHT);
-    PublishMqtt(topicHumDHT, humDHT);
+    if (temDHT > -25.0 && temDHT < 50.1)  PublishMqtt(topicTemDHT, temDHT);
+    if (humDHT < 100.1)  PublishMqtt(topicHumDHT, humDHT);
   }
   if (Count == 4000) PublishMqttT(topicClock, timetxt);
   return true;
